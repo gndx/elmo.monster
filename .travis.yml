@@ -1,0 +1,23 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn build
+notifications:
+  slack:
+    secure: "UIBFQiIuJlKRzEyyDjmIYMMw2e2tu5oJdMKqAh2G4LBGDrpbPB4h6m+HChAAVIxplGlXcBn2PY+nLl2wIpS/XIMXSyXvknL4tkF/5V4h7ZF+vpQH+KaLhvgcpMFMJdcvQ5nJ7oMLmd73bpA+/PSKrCGGVN/ZNd8AODcH2zN17L/Bb1WmuxqiGPMdH74GlBVkZRRJSNoxY11xZYi3TIBVbhtQPwYcn5NrVuTBQpAzgzQLPBHT7Iz4dgo/v2HEWsjDC3g64GQms1VPvEQpaWtHYAwXlJWtKXPtWuzQm9coplFd0lkcqrHoirIatPtaoctNLlnjNxhZw1XGDp/yDvWJZSGpL733+fZp3T+kl4eAgUE614mC6H3T21xkUjPfksLiWvjHKUWCy5p4K9Sa4FqhnIE+Z/BynWeDnFjH2Z2kZBaYb4PipvRYacqZhv6BwJHBFNGqapIIlL5XCp7osNRMIryaMaw5TqRaiZ23bF4kuqbcBtmzY0cmUiZYCa0xY/ISQi9c5KEYRrLF0rL2vvHVwv2LeIlOwZZIR6a2pNClvybR/4ao9FJ79dTpuLY9F+sHdIxijvTSUd4y1R/cCbOuvGbH7hPWbR8iZHfgFYsRL1VYo6UUN83akTtxJbwDsr5hrLoUnRUFxJtmJW/fm/JHY/is+ZazNwDdR9FVZD4FuwA="
+deploy:
+  provider: pages
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: dist/
+  target-branch: gh-pages
+  on:
+    branch: master
